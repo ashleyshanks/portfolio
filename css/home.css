@@ -1,0 +1,27 @@
+#home-hero {
+  position: relative;
+  height: calc(100vh - 1.3em);
+}
+
+#home-hero p {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.side-scroll {
+  overflow: hidden;
+}
+
+.side-scroll p {
+  white-space: nowrap;
+}
+
+.side-scroll.short {
+  display: flex;
+  align-items: center; /* vertical centering */
+}
+
+.side-scroll.short p {
+  margin-bottom: 0.09em;
+}
