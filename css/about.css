@@ -1,0 +1,133 @@
+#about-hero {
+  /* width: 55vw; */
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+#about-hero img {
+  border-radius: 50%;
+  width: 250px;
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  /* grid-column-gap: 3em; */
+}
+
+li.l-col {
+  grid-column: 1;
+}
+
+li.r-col {
+  grid-column: 3;
+}
+
+li.row1 {
+  grid-row: 1;
+}
+
+li.row2 {
+  grid-row: 2;
+}
+
+li.row3 {
+  grid-row: 3;
+}
+
+li.divider {
+  grid-column: 2;
+  grid-row: 1/-1;
+  height: 100%;
+  width: 50px;
+  position: relative;
+  display: flex;
+  /* align-content: center;
+  justify-content: center; */
+  /* justify-self: center;
+  align-self: center; */
+}
+
+.divider svg {
+  height: 100%;
+}
+
+#about-hero h1 {
+  margin: 0.1em 0;
+}
+
+.icons.about img,
+.icons svg:not(.icons svg.sparke) {
+  width: 50px;
+}
+
+#about-info ul.icons {
+  display: grid;
+  grid-template-columns: repeat(6, max-content);
+}
+
+#about-info .l-col li {
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+#about-info .l-col li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  background: url("../images/sparkle.svg") no-repeat center / contain;
+}
+
+#about-info h3 {
+  color: var(--white);
+  background-color: var(--black);
+  padding: 0.7em;
+  border-radius: 5px;
+}
+
+.stats {
+  display: flex;
+  /* grid-template-columns: repeat(6, 1fr); */
+  gap: 0.5rem;
+}
+
+.stats li {
+  text-align: center;
+  border: 2.5px solid var(--base);
+  color: var(--base);
+  border-radius: 10px;
+  padding: 0.4em 0.35em 0.5em 0.35em;
+  min-width: 0;
+}
+
+.stats span:first-of-type {
+  font-size: var(--tiny-inter);
+  width: 50px;
+  text-transform: uppercase;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 570;
+}
+
+.stats span:last-of-type {
+  font-size: var(--lg-inter);
+  text-transform: uppercase;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  margin-top: -0.2em;
+}
+
+.stats span {
+  display: block;
+}

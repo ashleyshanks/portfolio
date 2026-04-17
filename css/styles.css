@@ -40,22 +40,25 @@ button {
 :root {
   --white: #f1f1f1;
   --base: #9c0041;
-  --dk-base: #57042e;
+  /* --dk-base: #57042e; */
+  --dk-base: #9c0041;
   --black: rgb(29, 29, 29);
 
   --module-bg: #f1f1f1b7;
 
-  --tiny-inter: 0.8rem;
-  --sm-inter: 1.1rem;
-  --reg-inter: 1.3rem;
+  --tiny-inter: 0.6rem;
+  --sm-inter: 0.8rem;
+  --reg-inter: 1.1rem;
+  --lg-inter: 1.5rem;
 
-  --md-unbounded: 2rem;
-  --lg-unbounded: 4rem;
-  --xl-unbounded: 5rem;
+  --sm-unbounded: 0.95rem;
+  --md-unbounded: 1.5rem;
+  --lg-unbounded: 2.5rem;
+  --xl-unbounded: 3.2rem;
 
-  --md-bricolage: 1rem;
-  --lg-bricolage: 1.8rem;
-  --xl-bricolage: 3em;
+  --md-bricolage: 1.1rem;
+  --lg-bricolage: 1.5rem;
+  --xl-bricolage: 2.5em;
 
   --base-margin: 50px;
 }
@@ -65,7 +68,8 @@ body {
   color: var(--black);
 }
 
-.hero,
+#home-hero,
+#about-hero,
 .xl-link,
 h3,
 .side-scroll,
@@ -74,10 +78,14 @@ footer ul {
   text-transform: uppercase;
 }
 
+#about-hero {
+  text-transform: lowercase;
+}
 .project-highlight p,
 .sm-link,
 ul.tags,
-small {
+small,
+#about-info {
   font-family: inter-variable, sans-serif;
 }
 
@@ -98,16 +106,23 @@ small {
 }
 
 .tags {
-  font-weight: 550;
+  font-weight: 500;
 }
 
 /* inter reg 26 */
-.project-highlight p {
+.module p,
+#about-info {
   font-size: var(--reg-inter);
+  line-height: 1.6em;
+}
+
+#about-hero p {
+  line-height: 2.4em;
+  font-size: var(--sm-unbounded);
 }
 
 /* md unbounded 30 */
-h3,
+.module h3,
 footer ul {
   font-size: var(--md-unbounded);
   font-weight: 600;
@@ -120,7 +135,8 @@ footer ul {
 }
 
 /* xl unbounded 80 */
-.hero,
+#home-hero,
+#about-hero h1,
 .side-scroll {
   font-size: var(--xl-unbounded);
   font-weight: 600;
@@ -129,13 +145,14 @@ footer ul {
 /* xl brico */
 .text-only {
   font-family: bricolage-grotesque-48, sans-serif;
-  font-size: var(--xl-bricolage);
+  font-size: var(--lg-bricolage);
+  line-height: 2em;
 }
 
 /* large brico 36 */
 header > a {
   font-family: bricolage-grotesque-36, sans-serif;
-  font-size: var(--lg-bricolage);
+  font-size: var(--md-bricolage);
   text-transform: lowercase;
 
   font-weight: 600;
@@ -146,8 +163,10 @@ nav {
   font-family: bricolage-grotesque, sans-serif;
   font-size: var(--md-bricolage);
   text-transform: uppercase;
+  margin-top: -0.2em;
+  margin-right: -0.02em;
 
-  font-weight: 500;
+  font-weight: 600;
 }
 
 em {
@@ -176,32 +195,27 @@ header {
 }
 
 header {
-  padding-top: 1.1em;
+  padding: 1.1em;
+  padding-top: 0.7em;
+}
+
+.hero {
+  position: relative;
+  height: calc(100vh - 2em);
 }
 
 .text-only {
-  line-height: 2em;
   margin: 1em 0;
 }
 
 .module p {
   margin-top: 0.2em;
-  line-height: 1.6em;
 }
 
 .module h3 {
   margin-top: -0.4em;
 }
 
-.tags {
-  gap: 0.5em;
-  margin-top: 1.5em;
-  margin-left: 0.2em;
-}
-
-.tags li {
-  padding: 0.4em;
-}
 /* --------------------------------------- nav */
 
 header {
@@ -209,14 +223,15 @@ header {
   position: relative;
 }
 
+/*logo*/
+
 header svg {
-  width: 40vw;
   position: absolute;
 
-  top: -20px;
-  left: -43px;
+  top: -5px;
+  left: -20px;
 
-  width: 480px;
+  width: 284px;
   height: auto;
 
   z-index: -1;
@@ -226,7 +241,7 @@ header svg {
 }
 
 nav ul {
-  color: #57042e;
+  color: var(--dk-base);
   display: flex;
   justify-content: flex-end;
 }
@@ -246,6 +261,7 @@ nav li:not(:last-child)::after {
 }
 
 .xl-link a,
+.xl-link button,
 .sm-link a {
   position: relative;
   z-index: 1;
@@ -269,14 +285,18 @@ nav li:not(:last-child)::after {
 }
 
 .xl-link .arrow {
-  bottom: 0.8em; /* adjust this to sit under text */
+  bottom: 0; /* adjust this to sit under text */
   width: 94%;
   left: 50%; /* center horizontally */
   transform: translateX(-50%); /* true center */
 }
 
+.xl-link {
+  padding-right: var(--base-margin);
+}
+
 .xl-link:nth-of-type(2) a {
-  margin-left: 0.09em;
+  margin-left: auto;
 }
 
 .xl-link:nth-of-type(2) .arrow {
@@ -288,7 +308,7 @@ nav li:not(:last-child)::after {
 }
 
 .sm-link .arrow {
-  bottom: -4.35em; /* adjust this to sit under text */
+  bottom: -5.35em; /* adjust this to sit under text */
   width: 102%;
   transform: translateX(-1.5%);
 }
@@ -299,6 +319,10 @@ nav li:not(:last-child)::after {
 
 .tags {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  margin-top: 1.5em;
+  margin-left: 0.2em;
 }
 
 .tags li {
@@ -306,7 +330,9 @@ nav li:not(:last-child)::after {
   color: var(--white);
 
   border-radius: 5px;
+  padding: 0.4em;
 }
+
 /* --------------------------------------- project highlights */
 section.project-highlight {
   min-height: 30em;
