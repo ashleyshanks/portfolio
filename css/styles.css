@@ -283,6 +283,7 @@ nav li:not(:last-child)::after {
   color: var(--white);
   height: 5em;
   padding-bottom: 0.4em;
+  padding-right: var(--base-margin);
 }
 
 .xl-link svg {
@@ -294,11 +295,12 @@ nav li:not(:last-child)::after {
   width: 94%;
   left: 50%; /* center horizontally */
   transform: translateX(-50%); /* true center */
+  transition: transform 0.5s ease;
 }
 
-.xl-link {
-  padding-right: var(--base-margin);
-}
+/* .xl-link:hover .arrow {
+  transform: translateX(-90%); 
+} */
 
 .xl-link:nth-of-type(2) a {
   margin-left: auto;
