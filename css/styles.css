@@ -26,6 +26,7 @@ button,
 textarea,
 select {
   font: inherit;
+  color: inherit;
 }
 
 /* Remove button default styles */
@@ -46,9 +47,9 @@ button {
 
   --module-bg: #f1f1f1b7;
 
-  --tiny-inter: 0.6rem;
+  --tiny-inter: 0.5rem;
   --sm-inter: 0.8rem;
-  --reg-inter: 1.1rem;
+  --reg-inter: 1rem;
   --lg-inter: 1.5rem;
 
   --sm-unbounded: 0.95rem;
@@ -69,8 +70,8 @@ body {
 }
 
 #home-hero,
-#about-hero,
 .xl-link,
+.xl-link button,
 h3,
 .side-scroll,
 footer ul {
@@ -78,9 +79,12 @@ footer ul {
   text-transform: uppercase;
 }
 
-#about-hero {
+#about-hero,
+#about-outro {
+  font-family: unbounded, sans-serif;
   text-transform: lowercase;
 }
+
 .project-highlight p,
 .sm-link,
 ul.tags,
@@ -116,7 +120,8 @@ small {
   line-height: 1.6em;
 }
 
-#about-hero p {
+#about-hero p,
+#about-outro {
   line-height: 2.4em;
   font-size: var(--sm-unbounded);
 }
