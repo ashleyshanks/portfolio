@@ -183,6 +183,10 @@ em {
 }
 
 /* --------------------------------------- general */
+html,
+body {
+  min-width: 320px;
+}
 body {
   background-color: var(--white);
 }
@@ -431,15 +435,43 @@ footer ul {
   --md-bricolage: 1.1rem;
   --lg-bricolage: 1.5rem;
   --xl-bricolage: 2.5em; */
+@media (max-width: 375px) {
+  :root {
+    --tiny-inter: 0.5rem;
+    --sm-inter: 0.7rem;
+    --reg-inter: 0.85rem;
+    --lg-inter: 1rem;
 
-@media (max-width: 500px) {
+    --sm-unbounded: 0.65rem;
+
+    --md-unbounded: 0.8rem;
+    --lg-unbounded: 1.5rem;
+    --xl-unbounded: 2rem;
+
+    --md-bricolage: 0.9rem;
+    --lg-bricolage: 1rem;
+    --xl-bricolage: 2em;
+
+    --base-margin: 50px;
+
+    .xl-link .arrow {
+      bottom: -23%; /* adjust this to sit under text */
+      width: 92%;
+      transform: translateX(-49%); /* true center */
+    }
+  }
+}
+
+/*fix me.. get rid of overlap with root and arrows*/
+
+@media (min-width: 376px) and (max-width: 500px) {
   :root {
     --tiny-inter: 0.5rem;
     --sm-inter: 0.76rem;
     --reg-inter: 0.95rem;
     --lg-inter: 1.5rem;
 
-    --sm-unbounded: 0.9rem;
+    --sm-unbounded: 0.8rem;
     --md-unbounded: 1rem;
     --lg-unbounded: 1.5rem;
     --xl-unbounded: 2rem;
@@ -505,14 +537,7 @@ footer ul {
   }
 }
 
-@media (min-width: 415px) and (max-width: 510px) {
-  header svg {
-    transform: translateY(-2%);
-    width: 45vw;
-  }
-}
-
-@media (min-width: 511px) and (max-width: 749px) {
+@media (min-width: 415px) and (max-width: 749px) {
   header svg {
     transform: translateY(-2%);
     width: 45vw;
@@ -537,6 +562,11 @@ footer ul {
     width: 60vw;
     margin: 0 auto;
     padding: var(--base-margin) 0;
+
+    opacity: 0;
+    transform: scale(0.5);
+    transform-origin: center center;
+    will-change: transform, opacity;
   }
 
   footer div {

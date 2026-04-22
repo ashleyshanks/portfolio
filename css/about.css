@@ -246,7 +246,7 @@ ul.stats {
 }
 #about-links ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -293,6 +293,11 @@ ul.stats {
 }
 
 /* about media queries */
+@media (max-width: 375px) {
+  #about-hero p {
+    line-height: 3em;
+  }
+}
 
 @media (max-width: 550px) {
   #about-outro {
@@ -310,6 +315,18 @@ ul.stats {
     margin-top: -1em;
     margin: 0;
   }
+
+  #about-info #about-links {
+    margin-top: 2em;
+  }
+
+  #about-links span {
+    display: none;
+  }
+
+  /* .sparkle {
+    display: none;
+  } */
 }
 
 @media (max-width: 750px) {
