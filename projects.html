@@ -24,6 +24,11 @@
           <path d="M19.21,51.37v7.11h355.79v-7.11H19.21Z" />
         </svg>
       </defs>
+      <defs>
+        <svg id="circle" viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="8" r="8" fill="currentColor" />
+        </svg>
+      </defs>
     </svg>
     <header>
       <svg version="1.1" viewBox="0 0 540.32 355.84">
@@ -42,9 +47,40 @@
     </header>
 
     <main>
-      <section id="projects-hero" class="hero fade-section">
+      <section
+        id="projects-hero"
+        class="hero fade-section"
+        data-fade-start="0.2"
+      >
         <div class="content">
-          <h1>Introduction</h1>
+          <h1 class="no-display">Introduction</h1>
+          <div class="images">
+            <a href="#"
+              ><img
+                src="images/project previews/desert nutrition.png"
+                alt="preview of fitness store project"
+            /></a>
+            <a href="#"
+              ><img
+                src="images/project previews/techedu.png"
+                alt="preview of tech education project"
+            /></a>
+            <a href="#"
+              ><img
+                src="images/project previews/goodreads.png"
+                alt="preview of goodreads redesign project"
+            /></a>
+            <a href="#"
+              ><img
+                src="images/project previews/case song.png"
+                alt="preview of case vannon project"
+            /></a>
+            <a href="#"
+              ><img
+                src="images/project previews/case subscribe.png"
+                alt="preview of case vannon project"
+            /></a>
+          </div>
         </div>
       </section>
 
@@ -65,20 +101,13 @@
             src="images/case-fg.png"
             alt="collage of case vannon"
           />
-          <div>
+          <div class="project-info">
             <div class="module">
-              <h3>Project Case</h3>
-              <p>
-                My client, Case Vannon, came to me looking for more than just a
-                website update- he needed a digital space that truly reflected
-                his identity as an artist. What began as a web development
-                project quickly evolved into a deeper collaboration centered on
-                refining his brand aesthetic and translating the feeling of his
-                music into a visual experience.
-              </p>
+              <h3>Project Title</h3>
+              <p>Project Description</p>
 
               <div class="sm-link">
-                <a href="projects.html">See More</a>
+                <a href="#">See More</a>
                 <picture>
                   <source
                     srcset="images/md-arrow-blk.svg"
@@ -98,6 +127,26 @@
               <li>Web Design</li>
               <li>Custom Shopify Theme</li>
             </ul>
+          </div>
+          <div class="carousel-ui">
+            <div class="arrows">
+              <button class="left-btn">LEFT</button>
+              <button class="right-btn">RIGHT</button>
+            </div>
+            <div class="count">
+              <svg>
+                <use href="#circle" />
+              </svg>
+              <svg>
+                <use href="#circle" />
+              </svg>
+              <svg>
+                <use href="#circle" />
+              </svg>
+              <svg>
+                <use href="#circle" />
+              </svg>
+            </div>
           </div>
         </div>
       </section>

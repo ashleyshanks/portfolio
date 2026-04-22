@@ -6,6 +6,8 @@
   flex-direction: column;
   align-content: center;
   justify-content: center;
+  margin-bottom: 10em;
+  margin-top: 3em;
 }
 
 #projects-hero {
@@ -42,4 +44,127 @@
     opacity: 1;
     transform: scale(1);
   }
+}
+
+#projects-hero .content {
+  height: 110vh;
+  width: 100%;
+}
+
+.images {
+  position: relative;
+  height: 50rem;
+  width: 100%;
+
+  transform: translateY(200px);
+  will-change: transform;
+}
+
+.images img {
+  transition: transform 0.3s ease;
+}
+
+.images a {
+  position: absolute;
+
+  will-change: transform, opacity;
+  transform: translateY(40px);
+}
+
+.images img:hover {
+  transform: scale(1.2);
+}
+
+.images a:hover {
+  z-index: 10;
+}
+
+/* .images img {
+  transform: translateY(200px);
+} */
+
+/*gym*/
+.images a:first-of-type {
+  top: 30%;
+  left: 2%;
+}
+
+.images a:first-of-type img {
+  width: 270px;
+}
+
+/*tech edu*/
+.images a:nth-of-type(2) {
+  top: 60%;
+  left: 18%;
+}
+
+.images a:nth-of-type(2) img {
+  width: 300px;
+}
+/*goodreads*/
+.images a:nth-of-type(3) {
+  top: 20%;
+  left: 38%;
+}
+
+.images a:nth-of-type(3) img {
+  width: 250px;
+}
+
+/*case 1*/
+.images a:nth-of-type(4) {
+  top: 30%;
+  right: 2%;
+}
+
+.images a:nth-of-type(4) img {
+  width: 300px;
+}
+
+/*case 2*/
+.images a:last-of-type {
+  top: 55%;
+  left: 65%;
+}
+
+.images a:last-of-type img {
+  width: 250px;
+}
+
+.carousel-ui {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  bottom: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 5;
+}
+
+.arrows {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+
+  transform: translateY(-50%);
+}
+
+.count {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 1.5em;
+}
+.count svg {
+  width: 20px;
+  height: 20px;
 }

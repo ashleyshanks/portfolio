@@ -62,7 +62,7 @@ button {
   --xl-bricolage: 2.5em;
 
   --base-margin: 50px;
-  --sm-line-h: 1.5em;
+  --sm-line-h: 1.7em;
   --md-line-h: 2em;
   --lg-line-h: 2.4em;
 }
@@ -390,6 +390,21 @@ section.project-highlight {
   justify-self: center;
   margin-right: 0.2em;
 }
+.project-highlight {
+  position: relative;
+  height: 90vh;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 2px solid red;
+}
+
+.module {
+  flex: 1;
+}
 
 /* --------------------------------------- footer */
 footer {
@@ -560,6 +575,12 @@ footer ul {
 
   .xl-link .arrow {
     transform: translate(-52%, -50%) scale(1.8);
+  }
+}
+
+@media (min-width: 1060px) {
+  section.project-highlight {
+    padding: 12vw 10vw;
   }
 }
 
