@@ -1,24 +1,3 @@
-const sideFwdSection = document.querySelector(".side-scroll.fwd");
-const fwdText = sideFwdSection.querySelector("p");
-
-function handleSideScrollFwd() {
-  const rect = sideFwdSection.getBoundingClientRect();
-  const vh = window.innerHeight;
-
-  // progress: when section enters → when it leaves
-  let progress = (vh - rect.top) / (vh + rect.height);
-  progress = Math.max(0, Math.min(1, progress));
-
-  // move from right → left across screen
-  const x = 42 - progress * 80; // percentage
-
-  fwdText.style.transform = `translateX(${x}%)`;
-}
-
-window.addEventListener("scroll", handleSideScrollFwd);
-window.addEventListener("resize", handleSideScrollFwd);
-handleSideScrollFwd();
-
 const sideBkwdSection = document.querySelector(".side-scroll.bkwd");
 const bkwdText = sideBkwdSection.querySelector("p");
 

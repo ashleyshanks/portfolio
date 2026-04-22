@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://use.typekit.net/ulr4kdo.css" />
     <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/projects.css" />
     <link rel="stylesheet" href="../css/home.css" />
     <title>Ashley Shanks</title>
   </head>
@@ -41,20 +42,13 @@
     </header>
 
     <main>
-      <section id="home-hero" class="hero side-scroll">
-        <h1 class="no-display">Capabilities</h1>
-        <p>
-          Brand Strategy. Web Development. Visual Identity. UX. User Research.
-          Build for Authenticity & Orginality.
-        </p>
+      <section id="projects-hero" class="hero fade-section">
+        <div class="content">
+          <h1>Introduction</h1>
+        </div>
       </section>
-      <div class="xl-link">
-        <a href="about.html">Get to Know Me</a>
-        <svg class="arrow">
-          <use href="#arrow" />
-        </svg>
-      </div>
-      <section class="text-only">
+
+      <!-- <section class="text-only">
         <h2 class="no-display">Introduction</h2>
         <p>
           First impressions are <em>everything</em>, especially online. The
@@ -62,45 +56,61 @@
           <em>an opinion</em>. Lorem <em>ipsum</em> dolor sit amet, consectetuer
           adipiscing elit, sed <em>magnor</em> ipsum.
         </p>
-      </section>
-      <section class="project-highlight">
-        <h2 class="no-display">Project Highlights</h2>
-        <div>
-          <div class="module">
-            <h3>Project Case</h3>
-            <p>
-              My client, Case Vannon, came to me looking for more than just a
-              website update- he needed a digital space that truly reflected his
-              identity as an artist. What began as a web development project
-              quickly evolved into a deeper collaboration centered on refining
-              his brand aesthetic and translating the feeling of his music into
-              a visual experience.
-            </p>
+      </section> -->
+      <section class="project-highlight fade-section">
+        <div class="content">
+          <h2 class="no-display">Project Highlights</h2>
+          <img
+            class="project-img"
+            src="images/case-fg.png"
+            alt="collage of case vannon"
+          />
+          <div>
+            <div class="module">
+              <h3>Project Case</h3>
+              <p>
+                My client, Case Vannon, came to me looking for more than just a
+                website update- he needed a digital space that truly reflected
+                his identity as an artist. What began as a web development
+                project quickly evolved into a deeper collaboration centered on
+                refining his brand aesthetic and translating the feeling of his
+                music into a visual experience.
+              </p>
 
-            <div class="sm-link">
-              <a href="projects.html">See More</a>
-              <svg class="arrow">
-                <use href="#arrow" />
-              </svg>
+              <div class="sm-link">
+                <a href="projects.html">See More</a>
+                <picture>
+                  <source
+                    srcset="images/md-arrow-blk.svg"
+                    media="(min-width: 1100px)"
+                  />
+                  <img
+                    class="arrow"
+                    src="images/sm-arrow-blk.svg"
+                    aria-hidden="true"
+                  />
+                </picture>
+              </div>
             </div>
-          </div>
 
-          <ul class="tags">
-            <li>Brand Development</li>
-            <li>Web Design</li>
-            <li>Custom Shopify Theme</li>
-          </ul>
+            <ul class="tags">
+              <li>Brand Development</li>
+              <li>Web Design</li>
+              <li>Custom Shopify Theme</li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <div class="xl-link">
-        <a href="about.html">See All Projects</a>
-        <svg class="arrow">
-          <use href="#arrow" />
-        </svg>
-      </div>
-      <div class="side-scroll short">
-        <p>Lorem ipsum dolor sit amet cons</p>
+      <a class="xl-link home" href="#">
+        <span><span class="mobile-hidden">See All </span>Projects</span>
+        <picture>
+          <source srcset="images/xl-arrow.svg" media="(min-width: 1100px)" />
+          <img class="arrow" src="images/lg-arrow.svg" aria-hidden="true" />
+        </picture>
+      </a>
+      <div class="side-scroll bkwd short">
+        <p>Lorem ipsum dolor sit amet.</p>
       </div>
     </main>
 
@@ -129,5 +139,7 @@
         />
       </svg>
     </footer>
+    <script src="js/projects.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

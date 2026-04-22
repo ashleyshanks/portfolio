@@ -83,7 +83,8 @@ footer ul {
 }
 
 #about-hero,
-#about-outro {
+#about-outro,
+#projects-hero {
   font-family: unbounded, sans-serif;
   text-transform: lowercase;
 }
@@ -145,6 +146,7 @@ footer ul {
 /* xl unbounded 80 */
 #home-hero,
 #about-hero h1,
+#projects-hero h1,
 .side-scroll {
   font-size: var(--xl-unbounded);
   font-weight: 600;
@@ -201,7 +203,7 @@ header {
   padding-left: var(--base-margin);
 }
 
-section:not(#home-hero),
+section:not(#home-hero):not(section.project-highlight),
 header {
   padding-right: var(--base-margin);
 }
@@ -221,7 +223,7 @@ header {
 }
 
 .module p {
-  margin-top: 0.2em;
+  margin-top: 0.45em;
 }
 
 .module h3 {
@@ -243,14 +245,14 @@ header svg {
   top: -5px;
   left: -20px;
 
-  width: 284px;
+  width: 24vw;
   height: auto;
 
   z-index: -1;
   pointer-events: none;
 
   fill: var(--black);
-  transition: all 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 nav ul {
@@ -295,15 +297,16 @@ nav li:not(:last-child)::after {
   padding-left: calc(var(--base-margin) * 0.9);
 }
 
-.xl-link svg {
+/* .xl-link svg {
   fill: white;
-}
+} */
 
 .xl-link .arrow {
-  bottom: 0; /* adjust this to sit under text */
-  width: 94%;
-  left: 50%; /* center horizontally */
-  transform: translateX(-50%); /* true center */
+  left: 50%;
+  top: 60%;
+  transform: translate(-56%, -50%) scale(1.8);
+  transform-origin: center center;
+  display: block;
   transition: transform 0.5s ease;
 }
 
@@ -311,22 +314,25 @@ nav li:not(:last-child)::after {
   transform: translateX(-90%); 
 } */
 
-.xl-link:nth-of-type(2) a {
+/* .xl-link:nth-of-type(2) a {
   margin-left: auto;
 }
 
 .xl-link:nth-of-type(2) .arrow {
   transform: translateX(-51%) scaleX(-1);
-}
+} */
 
 .sm-link {
   margin-top: 2em;
 }
 
 .sm-link .arrow {
-  bottom: -5.35em; /* adjust this to sit under text */
-  width: 102%;
-  transform: translateX(-1.5%);
+  left: 50%;
+  top: 70%;
+  transform: translate(-53%, -10%) scale(2);
+  transform-origin: center center;
+  display: block;
+  transition: transform 0.5s ease;
 }
 
 .sm-link svg {
@@ -351,18 +357,19 @@ nav li:not(:last-child)::after {
 
 /* --------------------------------------- project highlights */
 section.project-highlight {
-  min-height: 30em;
   background-image: url("../images/case-bg.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
+  padding: var(--base-margin);
+  padding-left: 0;
+}
+
+.project-highlight .content {
   display: grid;
   grid-template-columns: 1fr 1.7fr;
   align-items: center;
-
-  padding-top: 4em;
-  padding-bottom: 4em;
 }
 
 .project-highlight > div {
@@ -372,8 +379,16 @@ section.project-highlight {
 .project-highlight .module {
   background-color: var(--module-bg);
   border-radius: 10px;
+
+  margin-right: var(--base-margin);
   padding: 48px;
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.526);
+}
+
+.project-img {
+  width: 16em;
+  justify-self: center;
+  margin-right: 0.2em;
 }
 
 /* --------------------------------------- footer */
@@ -411,17 +426,6 @@ footer ul {
   margin-bottom: 0.35em;
 }
 
-/* header svg {
-  transition: transform 0.3s ease;
-} */
-
-@media (max-width: 350px) {
-  header svg {
-    transform: translateX(3%) translateY(3%);
-    width: 29vw;
-  }
-}
-
 /* --tiny-inter: 0.5rem;
   --sm-inter: 0.8rem;
   --reg-inter: 1rem;
@@ -453,18 +457,16 @@ footer ul {
     --xl-bricolage: 2em;
 
     --base-margin: 50px;
+  }
 
-    .xl-link .arrow {
-      bottom: -23%; /* adjust this to sit under text */
-      width: 92%;
-      transform: translateX(-49%); /* true center */
-    }
+  .mobile-hidden {
+    display: none;
   }
 }
 
 /*fix me.. get rid of overlap with root and arrows*/
 
-@media (min-width: 376px) and (max-width: 500px) {
+@media (min-width: 375px) and (max-width: 500px) {
   :root {
     --tiny-inter: 0.5rem;
     --sm-inter: 0.76rem;
@@ -479,11 +481,11 @@ footer ul {
     --base-margin: 50px;
   }
 
-  .xl-link .arrow {
-    bottom: -23%; /* adjust this to sit under text */
+  /* .xl-link .arrow {
+    bottom: -23%; 
     width: 92%;
-    transform: translateX(-49%); /* true center */
-  }
+    transform: translateX(-49%); 
+  } */
 }
 
 @media (min-width: 500px) and (max-width: 750px) {
@@ -499,48 +501,6 @@ footer ul {
     --xl-unbounded: 2.5rem;
 
     --base-margin: 50px;
-  }
-
-  .xl-link .arrow {
-    bottom: -9%; /* adjust this to sit under text */
-    width: 92%;
-    transform: translateX(-52%); /* true center */
-  }
-}
-
-@media (max-width: 750px) {
-  footer ul {
-    font-size: var(--md-unbounded);
-    line-height: var(--sm-line-h);
-    font-weight: 600;
-    margin-bottom: 0;
-  }
-}
-@media (min-width: 751px) and (max-width: 949px) {
-  .xl-link .arrow {
-    transform: translateX(-50.5%); /* true center */
-  }
-}
-
-@media (max-width: 950px) {
-  :root {
-    --base-margin: 30px;
-  }
-}
-
-/* header and footer logos */
-
-@media (min-width: 350px) and (max-width: 415px) {
-  header svg {
-    transform: translateX(3%);
-    width: 37vw;
-  }
-}
-
-@media (min-width: 415px) and (max-width: 749px) {
-  header svg {
-    transform: translateY(-2%);
-    width: 45vw;
   }
 }
 
@@ -572,10 +532,48 @@ footer ul {
   footer div {
     position: static;
   }
+
+  footer ul {
+    font-size: var(--md-unbounded);
+    line-height: var(--sm-line-h);
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  section.project-highlight.fade-section {
+    padding-right: 0;
+  }
+
+  .project-highlight .content {
+    display: flex;
+    flex-direction: column;
+    padding: var(--base-margin);
+  }
+
+  .project-highlight .module {
+    margin-right: 0;
+  }
+
+  .project-highlight .tags {
+    justify-content: center;
+  }
+
+  .xl-link .arrow {
+    transform: translate(-52%, -50%) scale(1.8);
+  }
 }
 
 @media (min-width: 751px) and (max-width: 1050px) {
   footer {
     height: 50vw;
+  }
+}
+@media (max-width: 950px) {
+  :root {
+    --base-margin: 30px;
+  }
+
+  header svg {
+    transform: translateX(20%) translateY(20%) scale(1.4);
   }
 }

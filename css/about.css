@@ -55,6 +55,8 @@
   height: 250px;
   border-radius: 50%;
   overflow: hidden; /* THIS is the mask */
+  transition: transform 0.2s ease;
+  transform-origin: center bottom;
 }
 
 .circle-pic img {
@@ -158,7 +160,7 @@ li.divider {
 }
 
 .xl-link.about:hover .arrow {
-  transform: translateX(-90%);
+  transform: translate(-165%, -50%) scale(1.8);
 }
 
 #about-hero h1 {
@@ -359,7 +361,7 @@ ul.stats {
   }
 }
 
-@media (max-width: 500px) {
+/* @media (max-width: 500px) {
   .xl-link.about:hover .arrow {
     transform: translateX(-67%);
   }
@@ -374,6 +376,24 @@ ul.stats {
 @media (min-width: 751px) and (max-width: 945px) {
   .xl-link.about:hover .arrow {
     transform: translateX(-90%);
+  }
+} */
+
+@media (max-width: 499px) {
+  .xl-link.about:hover .arrow {
+    transform: translate(-60%, -50%) scale(1.8);
+  }
+}
+
+@media (min-width: 500px) and (max-width: 900px) {
+  .xl-link.about:hover .arrow {
+    transform: translate(-88%, -50%) scale(1.8);
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1300px) {
+  .xl-link.about:hover .arrow {
+    transform: translate(-132%, -50%) scale(1.8);
   }
 }
 
@@ -392,5 +412,25 @@ ul.stats {
 
   #about-info .tags {
     margin-top: 1.2em;
+  }
+}
+
+@media (min-width: 1075px) {
+  /* fix me standardize font size  */
+  :root {
+    --base-margin: 80px;
+  }
+
+  #about-outro p {
+    font-size: 1.4em;
+    line-height: var(--lg-line-h);
+  }
+
+  #about-outro img {
+    width: 23em;
+  }
+
+  .circle-pic {
+    transform: scale(1.2);
   }
 }

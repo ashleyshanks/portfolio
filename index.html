@@ -9,22 +9,6 @@
     <title>Ashley Shanks</title>
   </head>
   <body>
-    <svg style="display: none">
-      <defs>
-        <svg
-          id="arrow"
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
-          viewBox="0 0 1366 111.32"
-        >
-          <path
-            d="M1336.74,54.55l-.64-.19-1.87-.6-.25-.08-1.41-.51c-.58-.21-1.13-.45-1.7-.7-1.19-.53-2.31-1.15-3.38-1.94-2.09-1.55-3.49-3.53-4.56-6.01-.45-1.04-.85-2.07-1.18-3.17l-.56-1.85-.19-.69-.56-2.12c-.01-.05-.14-.1-.18-.08-.03.02-.1.08-.11.12l-.17.67-.18.7-.11.42-.4,1.42-.16.56-.15.5c-.38,1.23-.8,2.41-1.31,3.57-1.04,2.36-2.31,4.22-4.26,5.75-.48.37-1.01.73-1.57,1.06H375v7.11h937.5c1.87,1.24,3.27,2.76,4.44,4.9.67,1.22,1.21,2.49,1.64,3.83l.52,1.61.1.32.39,1.38.19.71.38,1.48c.01.06.1.12.15.13.04,0,.14-.04.16-.09l.55-2.1.19-.69.57-1.91c.59-1.99,1.66-4.49,2.83-6.15,1.43-2.03,3.2-3.4,5.32-4.46,1.36-.68,2.73-1.24,4.16-1.7l2.07-.67.57-.17c.06-.02.13-.13.12-.19,0-.05-.06-.15-.11-.16Z"
-          />
-          <path d="M19.21,51.37v7.11h355.79v-7.11H19.21Z" />
-        </svg>
-      </defs>
-    </svg>
-
     <header>
       <svg version="1.1" viewBox="0 0 540.32 355.84">
         <path
@@ -42,16 +26,20 @@
     </header>
 
     <main>
-      <section id="home-hero" class="hero side-scroll">
-        <h1 class="no-display">Capabilities</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <section id="home-hero" class="hero side-scroll fwd fade-section">
+        <div class="content">
+          <h1 class="no-display">Capabilities</h1>
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
       </section>
-      <div class="xl-link">
-        <a href="about.html">Get to Know Me</a>
-        <svg class="arrow">
-          <use href="#arrow" />
-        </svg>
-      </div>
+      <a class="xl-link home" href="#">
+        <span>Get to Know Me</span>
+        <picture>
+          <source srcset="images/xl-arrow.svg" media="(min-width: 1100px)" />
+          <img class="arrow" src="images/lg-arrow.svg" aria-hidden="true" />
+        </picture>
+      </a>
+
       <section class="text-only no-display">
         <h2 class="no-display">Introduction</h2>
         <p>
@@ -61,44 +49,61 @@
           adipiscing elit, sed <em>magnor</em> ipsum.
         </p>
       </section>
-      <section class="project-highlight">
-        <h2 class="no-display">Project Highlights</h2>
-        <div>
-          <div class="module">
-            <h3>Project Case</h3>
-            <p>
-              My client, Case Vannon, came to me looking for more than just a
-              website update- he needed a digital space that truly reflected his
-              identity as an artist. What began as a web development project
-              quickly evolved into a deeper collaboration centered on refining
-              his brand aesthetic and translating the feeling of his music into
-              a visual experience.
-            </p>
+      <section class="project-highlight fade-section">
+        <div class="content">
+          <h2 class="no-display">Project Highlights</h2>
+          <img
+            class="project-img"
+            src="images/case-fg.png"
+            alt="collage of case vannon"
+          />
+          <div>
+            <div class="module">
+              <h3>Project Case</h3>
+              <p>
+                My client, Case Vannon, came to me looking for more than just a
+                website update- he needed a digital space that truly reflected
+                his identity as an artist. What began as a web development
+                project quickly evolved into a deeper collaboration centered on
+                refining his brand aesthetic and translating the feeling of his
+                music into a visual experience.
+              </p>
 
-            <div class="sm-link">
-              <a href="projects.html">See More</a>
-              <svg class="arrow">
-                <use href="#arrow" />
-              </svg>
+              <div class="sm-link">
+                <a href="projects.html">See More</a>
+                <picture>
+                  <source
+                    srcset="images/md-arrow-blk.svg"
+                    media="(min-width: 1100px)"
+                  />
+                  <img
+                    class="arrow"
+                    src="images/sm-arrow-blk.svg"
+                    aria-hidden="true"
+                  />
+                </picture>
+              </div>
             </div>
-          </div>
 
-          <ul class="tags">
-            <li>Brand Development</li>
-            <li>Web Design</li>
-            <li>Custom Shopify Theme</li>
-          </ul>
+            <ul class="tags">
+              <li>Brand Development</li>
+              <li>Web Design</li>
+              <li>Custom Shopify Theme</li>
+            </ul>
+          </div>
         </div>
       </section>
 
-      <div class="xl-link">
-        <a href="about.html">See All Projects</a>
-        <svg class="arrow">
-          <use href="#arrow" />
-        </svg>
-      </div>
-      <div class="side-scroll short">
-        <p>Lorem ipsum dolor sit amet cons</p>
+      <a class="xl-link home" href="#">
+        <span><span class="mobile-hidden">See All </span>Projects</span>
+        <picture>
+          <source srcset="images/xl-arrow.svg" media="(min-width: 1100px)" />
+          <img class="arrow" src="images/lg-arrow.svg" aria-hidden="true" />
+        </picture>
+      </a>
+
+      <div class="side-scroll bkwd short">
+        <p>Lorem ipsum dolor sit amet.</p>
       </div>
     </main>
 
