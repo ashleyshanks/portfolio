@@ -126,12 +126,48 @@ document.addEventListener("DOMContentLoaded", () => {
     renderProject(projects[currentIndex]);
   }
 
-  document.querySelector(".right-btn").addEventListener("click", showNext);
-
   function showPrev() {
     currentIndex = (currentIndex - 1 + projects.length) % projects.length;
     renderProject(projects[currentIndex]);
   }
 
+  function renderCount() {
+    const count = document.querySelector(".count");
+    count.innerHTML = "";
+
+    projects.forEach((_, i) => {
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+
+      use.setAttribute("href", "#circle");
+
+      svg.appendChild(use);
+
+      if (i === currentIndex) {
+        svg.classList.add("active");
+      }
+
+      count.appendChild(svg);
+    });
+  }
+
+  function updateDisplay() {
+    renderProject(projects[currentIndex]);
+    renderCount();
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % projects.length;
+    updateDisplay();
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+    updateDisplay();
+  }
+
+  document.querySelector(".right-btn").addEventListener("click", showNext);
   document.querySelector(".left-btn").addEventListener("click", showPrev);
+
+  updateDisplay();
 });

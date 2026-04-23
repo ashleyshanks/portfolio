@@ -167,4 +167,26 @@
 .count svg {
   width: 20px;
   height: 20px;
+  opacity: 0.4;
+}
+
+.count svg.active {
+  opacity: 1;
+}
+
+.left-btn {
+  margin-left: 5px;
+}
+.right-btn {
+  margin-right: 5px;
+}
+
+@media (max-width: 540px) {
+  .project-highlight .count {
+    display: none;
+  }
+
+  .project-highlight .tags {
+    margin-bottom: 0;
+  }
 }

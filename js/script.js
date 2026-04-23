@@ -1,3 +1,20 @@
+const cursor = document.querySelector(".cursor");
+
+window.addEventListener("mousemove", (e) => {
+  cursor.style.left = `${e.clientX}px`;
+  cursor.style.top = `${e.clientY}px`;
+});
+
+document.querySelectorAll("a, button").forEach((el) => {
+  el.addEventListener("mouseenter", () => {
+    cursor.classList.add("pointer");
+  });
+
+  el.addEventListener("mouseleave", () => {
+    cursor.classList.remove("pointer");
+  });
+});
+
 const sections = document.querySelectorAll(".fade-section");
 
 function easeOut(t) {
