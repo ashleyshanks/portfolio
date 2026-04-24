@@ -1,0 +1,37 @@
+header svg.back-arrow {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  margin: 0.6em;
+
+  width: 40px;
+  height: auto;
+
+  z-index: -1;
+  pointer-events: none;
+
+  fill: var(--black);
+}
+
+header svg.back-arrow path {
+  fill: var(--white);
+}
+
+body {
+  font-family: inter-variable, sans-serif;
+  font-size: var(--reg-inter);
+}
+
+main img {
+  width: 300px;
+  height: auto;
+}
+
+h1 {
+  font-size: var(--lg-unbounded);
+  font-weight: 500;
+  font-family: unbounded, sans-serif;
+  text-transform: lowercase;
+}
