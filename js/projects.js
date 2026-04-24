@@ -1,4 +1,4 @@
-const sideBkwdSection = document.querySelector(".side-scroll.bkwd");
+const sideBkwdSection = document.querySelector(".marquee.bkwd");
 const bkwdText = sideBkwdSection.querySelector("p");
 
 function handleSideScrollBkwd() {

@@ -1,4 +1,4 @@
-const sideFwdSection = document.querySelector(".side-scroll.fwd");
+const sideFwdSection = document.querySelector(".marquee.fwd");
 const fwdText = sideFwdSection.querySelector("p");
 
 function handleSideScrollFwd() {
@@ -19,7 +19,7 @@ window.addEventListener("scroll", handleSideScrollFwd);
 window.addEventListener("resize", handleSideScrollFwd);
 handleSideScrollFwd();
 
-const sideBkwdSection = document.querySelector(".side-scroll.bkwd");
+const sideBkwdSection = document.querySelector(".marquee.bkwd");
 const bkwdText = sideBkwdSection.querySelector("p");
 
 function handleSideScrollBkwd() {

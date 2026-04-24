@@ -1,70 +1,84 @@
-#home-hero p {
+#hero {
+  font-family: unbounded, sans-serif;
+  text-transform: uppercase;
+  font-size: var(--xl-unbounded);
+  font-weight: 600;
+
+  padding-right: 0;
+}
+
+#hero p {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.side-scroll {
+.marquee {
+  font-family: unbounded, sans-serif;
+  text-transform: uppercase;
+  font-size: var(--xl-unbounded);
+  font-weight: 600;
+
   overflow: hidden;
 }
 
-.side-scroll p {
+.marquee p {
   white-space: nowrap;
 }
 
-.side-scroll.short {
+.marquee.short {
   display: flex;
   align-items: center; /* vertical centering */
 }
 
-.side-scroll.short p {
+.marquee.short p {
   margin-bottom: 0.09em;
 }
 
-.xl-link:first-of-type:hover .arrow {
+.btn:first-of-type:hover .arrow {
   transform: translate(-149%, -50%) scale(1.8);
 }
 
-.xl-link:nth-of-type(2):hover .arrow {
+.btn:nth-of-type(2):hover .arrow {
   transform: translate(-150%, -50%) scale(1.8);
 }
 
 @media (max-width: 376px) {
-  .xl-link:first-of-type:hover .arrow {
+  .btn:first-of-type:hover .arrow {
     transform: translate(-55%, -50%) scale(1.8);
   }
 
-  .xl-link:nth-of-type(2):hover .arrow {
+  .btn:nth-of-type(2):hover .arrow {
     transform: translate(-115%, -50%) scale(1.8);
   }
 }
 
 @media (min-width: 376px) and (max-width: 500px) {
-  .xl-link:first-of-type:hover .arrow {
+  .btn:first-of-type:hover .arrow {
     transform: translate(-75%, -50%) scale(1.8);
   }
 
-  .xl-link:nth-of-type(2):hover .arrow {
+  .btn:nth-of-type(2):hover .arrow {
     transform: translate(-65%, -50%) scale(1.8);
   }
 }
 
 @media (min-width: 500px) and (max-width: 750px) {
-  .xl-link:first-of-type:hover .arrow {
+  .btn:first-of-type:hover .arrow {
     transform: translate(-80%, -50%) scale(1.8);
   }
 
-  .xl-link:nth-of-type(2):hover .arrow {
+  .btn:nth-of-type(2):hover .arrow {
     transform: translate(-70%, -50%) scale(1.8);
   }
 }
 
 @media (min-width: 750px) and (max-width: 1250px) {
-  .xl-link:first-of-type:hover .arrow {
+  .btn:first-of-type:hover .arrow {
     transform: translate(-110%, -50%) scale(1.8);
   }
 
-  .xl-link:nth-of-type(2):hover .arrow {
+  .btn:nth-of-type(2):hover .arrow {
     transform: translate(-100%, -50%) scale(1.8);
   }
 }
