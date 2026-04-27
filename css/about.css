@@ -95,7 +95,7 @@
   }
 }
 
-.cols {
+#cols {
   display: grid;
   position: relative;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -104,7 +104,7 @@
 }
 
 /*divider*/
-.cols::before {
+#cols::before {
   content: "";
   position: absolute;
 
@@ -133,7 +133,7 @@
   margin-right: calc(var(--base-margin) / 2);
 }
 
-.cols li > :nth-child(2),
+#cols li > :nth-child(2),
 .stats {
   margin-top: calc(var(--base-margin) / 4.5);
 }
@@ -202,12 +202,12 @@ li.divider {
   grid-template-columns: repeat(6, max-content);
 }
 
-#info .l-col li {
+.l-col li {
   position: relative;
   padding-left: 1.4rem;
 }
 
-#info .l-col li::before {
+.l-col li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -217,7 +217,7 @@ li.divider {
   background: url("../images/sparkle.svg") no-repeat center / contain;
 }
 
-#info h3 {
+h3 {
   color: var(--white);
   background-color: var(--black);
   padding: 0.7em;
@@ -338,7 +338,7 @@ ul.stats {
     margin: 0;
   }
 
-  #info #links {
+  #links {
     margin-top: 2em;
   }
 
@@ -352,11 +352,11 @@ ul.stats {
 }
 
 @media (max-width: 750px) {
-  .cols::before {
+  #cols::before {
     content: none;
   }
 
-  .cols {
+  #cols {
     display: block;
   }
 
@@ -364,7 +364,7 @@ ul.stats {
     width: 18px;
   }
 
-  #info h3:not(li:first-of-type h3) {
+  h3:not(li:first-of-type h3) {
     margin-top: 2em;
   }
 
@@ -400,11 +400,11 @@ ul.stats {
 }
 
 @media (max-width: 950px) {
-  .cols {
+  #cols {
     grid-column-gap: 3em;
   }
 
-  .cols li > :nth-child(2):not(.stats span:last-of-type) {
+  #cols li > :nth-child(2):not(.stats span:last-of-type) {
     margin-top: 0.8em;
   }
 

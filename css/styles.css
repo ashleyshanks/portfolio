@@ -41,9 +41,9 @@ button {
 :root {
   --white: #f1f1f1;
   --base: #9c0041;
-  /* --dk-base: #57042e; */
-  --dk-base: #9c0041;
+  --dk-base: #630229;
   --black: rgb(29, 29, 29);
+  --shadow: rgba(0, 0, 0, 0.029);
 
   --module-bg: #f1f1f1b7;
 
@@ -168,7 +168,7 @@ body {
   background-color: var(--white);
 }
 .hide {
-  display: none;
+  display: none !important;
 }
 
 * {
@@ -189,11 +189,12 @@ body {
   background-repeat: no-repeat;
   background-position: center;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-30%, -30%);
 }
 
 .cursor.pointer {
   background-image: url("../images/pointer.png");
+  transform: translate(-30%, -30%) translateY(6px);
 }
 
 /* --------------------------------------- spacing */
@@ -257,14 +258,14 @@ header svg {
 }
 
 nav ul {
-  color: var(--dk-base);
+  color: var(--base);
   display: flex;
   justify-content: flex-end;
 }
 
 nav li:not(:last-child)::after {
   content: ".";
-  margin-right: 0.25em;
+  padding-right: 0.25em;
 }
 
 /* --------------------------------------- elements */
@@ -287,6 +288,10 @@ nav li:not(:last-child)::after {
 .sm-link a {
   position: relative;
   z-index: 1;
+}
+
+.sm-link a {
+  padding: 5px;
 }
 .arrow {
   position: absolute;
@@ -316,18 +321,6 @@ nav li:not(:last-child)::after {
   display: block;
   transition: transform 0.5s ease;
 }
-
-/* .btn:hover .arrow {
-  transform: translateX(-90%); 
-} */
-
-/* .btn:nth-of-type(2) a {
-  margin-left: auto;
-}
-
-.btn:nth-of-type(2) .arrow {
-  transform: translateX(-51%) scaleX(-1);
-} */
 
 .sm-link {
   margin-top: 2em;
@@ -450,19 +443,22 @@ footer ul {
   margin-bottom: 0.35em;
 }
 
-/* --tiny-inter: 0.5rem;
-  --sm-inter: 0.8rem;
-  --reg-inter: 1rem;
-  --lg-inter: 1.5rem;
+/* ---------------------------------------hover styles */
+nav li,
+footer li,
+.sm-link a {
+  transition: all 0.3s;
+}
 
-  --sm-unbounded: 0.95rem;
-  --md-unbounded: 1.5rem;
-  --lg-unbounded: 2.5rem;
-  --xl-unbounded: 3.2rem;
+nav li:hover,
+footer li:hover,
+.sm-link a:hover {
+  color: var(--dk-base);
+  transform: scale(1.02);
+}
 
-  --md-bricolage: 1.1rem;
-  --lg-bricolage: 1.5rem;
-  --xl-bricolage: 2.5em; */
+/* --------------------------------------- media queries */
+
 @media (max-width: 375px) {
   :root {
     --tiny-inter: 0.5rem;
@@ -573,6 +569,7 @@ footer ul {
   section.highlight {
     padding: 0;
     height: 100vh;
+    margin-top: -4px;
   }
 
   .highlight .content {

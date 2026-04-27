@@ -19,53 +19,53 @@ window.addEventListener("scroll", handleSideScrollBkwd);
 window.addEventListener("resize", handleSideScrollBkwd);
 handleSideScrollBkwd();
 
-const images = document.querySelector(".images");
-const cards = images.querySelectorAll("a");
+// const images = document.querySelector(".images");
+// const cards = images.querySelectorAll("a");
 
-function animateProjectsHero() {
-  const vh = window.innerHeight;
+// function animateProjectsHero() {
+//   const vh = window.innerHeight;
 
-  // smoothstep ease
-  const ease = (t) => t * t * (3 - 2 * t);
+//   // smoothstep ease
+//   const ease = (t) => t * t * (3 - 2 * t);
 
-  // .images container animation
-  const imagesRect = images.getBoundingClientRect();
-  const imagesCenter = imagesRect.top + imagesRect.height / 2;
+//   // .images container animation
+//   const imagesRect = images.getBoundingClientRect();
+//   const imagesCenter = imagesRect.top + imagesRect.height / 2;
 
-  // starts sooner, ends later
-  const containerStart = vh * 1.15;
-  const containerEnd = vh * 0.25;
+//   // starts sooner, ends later
+//   const containerStart = vh * 1.15;
+//   const containerEnd = vh * 0.25;
 
-  let containerProgress =
-    (containerStart - imagesCenter) / (containerStart - containerEnd);
-  containerProgress = Math.max(0, Math.min(1, containerProgress));
+//   let containerProgress =
+//     (containerStart - imagesCenter) / (containerStart - containerEnd);
+//   containerProgress = Math.max(0, Math.min(1, containerProgress));
 
-  const containerEased = ease(containerProgress);
-  const imagesY = 200 * (1 - containerEased);
+//   const containerEased = ease(containerProgress);
+//   const imagesY = 200 * (1 - containerEased);
 
-  images.style.transform = `translateY(${imagesY}px)`;
+//   images.style.transform = `translateY(${imagesY}px)`;
 
-  // cards animate from their own viewport positions
-  cards.forEach((card) => {
-    const rect = card.getBoundingClientRect();
-    const cardCenter = rect.top + rect.height / 2;
+//   // cards animate from their own viewport positions
+//   cards.forEach((card) => {
+//     const rect = card.getBoundingClientRect();
+//     const cardCenter = rect.top + rect.height / 2;
 
-    const start = vh * 0.85;
-    const end = vh * 0.45;
+//     const start = vh * 0.85;
+//     const end = vh * 0.45;
 
-    let progress = (start - cardCenter) / (start - end);
-    progress = Math.max(0, Math.min(1, progress));
+//     let progress = (start - cardCenter) / (start - end);
+//     progress = Math.max(0, Math.min(1, progress));
 
-    const eased = ease(progress);
-    const y = 60 * (1 - eased);
+//     const eased = ease(progress);
+//     const y = 60 * (1 - eased);
 
-    card.style.transform = `translateY(${y}px)`;
-  });
-}
+//     card.style.transform = `translateY(${y}px)`;
+//   });
+// }
 
-window.addEventListener("scroll", animateProjectsHero);
-window.addEventListener("resize", animateProjectsHero);
-animateProjectsHero();
+// window.addEventListener("scroll", animateProjectsHero);
+// window.addEventListener("resize", animateProjectsHero);
+// animateProjectsHero();
 
 document.addEventListener("DOMContentLoaded", () => {
   const techFwdInfo = {
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   function renderProject(data) {
-    const img = document.querySelector(".project-img");
+    const img = document.querySelector("#proj-img");
     const title = document.querySelector(".module h3");
     const desc = document.querySelector(".module p");
     const link = document.querySelector(".sm-link a");

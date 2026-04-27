@@ -10,6 +10,13 @@ if (header && !header.classList.contains("project")) {
         />
       </svg>
       <a href="index.html">Coded By Ashley Shanks</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
   `
   );
 }
@@ -50,7 +57,7 @@ window.addEventListener("mousemove", (e) => {
   cursor.style.top = `${e.clientY}px`;
 });
 
-document.querySelectorAll("a, button").forEach((el) => {
+document.querySelectorAll("a, button, #carousel img").forEach((el) => {
   el.addEventListener("mouseenter", () => {
     cursor.classList.add("pointer");
   });
@@ -92,31 +99,60 @@ window.addEventListener("scroll", handleScroll);
 window.addEventListener("resize", handleScroll);
 handleScroll();
 
-const footerLogo = document.querySelector("#footer-logo");
+// const footerLogo = document.querySelector("#footer-logo");
 
-function animateFooterLogo() {
-  const rect = footerLogo.getBoundingClientRect();
-  const vh = window.innerHeight;
+// function animateFooterLogo() {
+//   const rect = footerLogo.getBoundingClientRect();
+//   const vh = window.innerHeight;
 
-  // start when logo enters viewport
-  const start = vh;
+//   // start when logo enters viewport
+//   const start = vh;
 
-  // finish when logo gets closer to lower-middle of viewport
-  const end = vh * 0.4;
+//   // finish when logo gets closer to lower-middle of viewport
+//   const end = vh * 0.4;
 
-  let progress = (start - rect.top) / (start - end);
-  progress = Math.max(0, Math.min(1, progress));
+//   let progress = (start - rect.top) / (start - end);
+//   progress = Math.max(0, Math.min(1, progress));
 
-  // ease out
-  const eased = 1 - Math.pow(1 - progress, 3);
+//   // ease out
+//   const eased = 1 - Math.pow(1 - progress, 3);
 
-  const scale = 0.5 + eased * 0.5; // 0.5 -> 1
-  const opacity = eased; // 0 -> 1
+//   const scale = 0.5 + eased * 0.5; // 0.5 -> 1
+//   const opacity = eased; // 0 -> 1
 
-  footerLogo.style.transform = `scale(${scale})`;
-  footerLogo.style.opacity = opacity;
-}
+//   footerLogo.style.transform = `scale(${scale})`;
+//   footerLogo.style.opacity = opacity;
+// }
 
-window.addEventListener("scroll", animateFooterLogo);
-window.addEventListener("resize", animateFooterLogo);
-animateFooterLogo();
+// window.addEventListener("scroll", animateFooterLogo);
+// window.addEventListener("resize", animateFooterLogo);
+// animateFooterLogo();
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelector("footer").innerHTML = footerContent;
+
+  // IMPORTANT: now it exists
+  const footerLogo = document.querySelector("#footer-logo");
+  if (!footerLogo) return;
+
+  function animateFooterLogo() {
+    const rect = footerLogo.getBoundingClientRect();
+    const vh = window.innerHeight;
+
+    const start = vh;
+    const end = vh * 0.4;
+
+    let progress = (start - rect.top) / (start - end);
+    progress = Math.max(0, Math.min(1, progress));
+
+    const eased = 1 - Math.pow(1 - progress, 3);
+
+    footerLogo.style.transform = `scale(${0.5 + eased * 0.5})`;
+    footerLogo.style.opacity = eased;
+  }
+
+  window.addEventListener("scroll", animateFooterLogo);
+  window.addEventListener("resize", animateFooterLogo);
+
+  animateFooterLogo();
+});
