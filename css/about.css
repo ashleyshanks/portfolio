@@ -100,18 +100,18 @@
   position: relative;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 3.5em;
+  grid-column-gap: 1.5em;
 }
 
 /*divider*/
-#cols::before {
+/* #cols::before {
   content: "";
   position: absolute;
 
   top: -3px;
   bottom: -3px;
 
-  /* center of column 2 */
+
   left: 50%;
   transform: translateX(-50%);
 
@@ -121,7 +121,7 @@
   background-size: contain;
 
   pointer-events: none;
-}
+} */
 .l-col,
 .r-col {
   min-width: 0;
@@ -129,18 +129,22 @@
 
 .l-col > :not(h3),
 .r-col > :not(h3) {
-  margin-left: calc(var(--base-margin) / 2);
-  margin-right: calc(var(--base-margin) / 2);
-}
-
-#cols li > :nth-child(2),
-.stats {
-  margin-top: calc(var(--base-margin) / 4.5);
+  margin-left: 0.8em;
 }
 
 #info .icons,
+#info .tags,
+#info h4,
+.row3.r-col p {
+  margin-top: 0.4em;
+}
+
+.row3.r-col p {
+  margin-bottom: 0.4em;
+}
+
 #info .tags {
-  margin-top: calc(var(--base-margin) / 4.5 + 0.2em);
+  margin-top: 0.6em;
 }
 
 li.l-col {
@@ -179,9 +183,9 @@ li.divider {
   width: 2.1em;
 }
 
-.btn:hover .arrow {
+/* .btn:hover .arrow {
   transform: translate(-165%, -50%) scale(1.8);
-}
+} */
 
 #hero h1 {
   margin: 0.1em 0;
@@ -212,14 +216,17 @@ li.divider {
   position: absolute;
   left: 0;
   top: 0.55em;
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   background: url("../images/sparkle.svg") no-repeat center / contain;
 }
 
 h3 {
   color: var(--white);
   background-color: var(--black);
+  background-image: url("../images/dk-grain.png");
+  background-size: 250px 250px;
+  background-repeat: repeat;
   padding: 0.7em;
   border-radius: 5px;
 }
@@ -285,7 +292,11 @@ ul.stats {
 }
 
 .sparkle {
-  width: 23px;
+  width: 14px;
+  height: 14px;
+}
+#links {
+  margin-top: 3em;
 }
 
 #outro {
@@ -381,7 +392,7 @@ ul.stats {
   }
 }
 
-@media (max-width: 499px) {
+/* @media (max-width: 499px) {
   .btn:hover .arrow {
     transform: translate(-60%, -50%) scale(1.8);
   }
@@ -397,7 +408,7 @@ ul.stats {
   .btn:hover .arrow {
     transform: translate(-132%, -50%) scale(1.8);
   }
-}
+} */
 
 @media (max-width: 950px) {
   #cols {

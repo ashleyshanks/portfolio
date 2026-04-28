@@ -1,71 +1,23 @@
-const sideBkwdSection = document.querySelector(".marquee.bkwd");
-const bkwdText = sideBkwdSection.querySelector("p");
+// const sideBkwdSection = document.querySelector(".marquee.bkwd");
+// const bkwdText = sideBkwdSection.querySelector("p");
 
-function handleSideScrollBkwd() {
-  const rect = sideBkwdSection.getBoundingClientRect();
-  const vh = window.innerHeight;
-
-  // progress: when section enters → when it leaves
-  let progress = (vh - rect.top) / (vh + rect.height);
-  progress = Math.max(0, Math.min(1, progress));
-
-  // move from right → left across screen
-  const x = -60 + progress * 80; // percentage
-
-  bkwdText.style.transform = `translateX(${x}%)`;
-}
-
-window.addEventListener("scroll", handleSideScrollBkwd);
-window.addEventListener("resize", handleSideScrollBkwd);
-handleSideScrollBkwd();
-
-// const images = document.querySelector(".images");
-// const cards = images.querySelectorAll("a");
-
-// function animateProjectsHero() {
+// function handleSideScrollBkwd() {
+//   const rect = sideBkwdSection.getBoundingClientRect();
 //   const vh = window.innerHeight;
 
-//   // smoothstep ease
-//   const ease = (t) => t * t * (3 - 2 * t);
+//   // progress: when section enters → when it leaves
+//   let progress = (vh - rect.top) / (vh + rect.height);
+//   progress = Math.max(0, Math.min(1, progress));
 
-//   // .images container animation
-//   const imagesRect = images.getBoundingClientRect();
-//   const imagesCenter = imagesRect.top + imagesRect.height / 2;
+//   // move from right → left across screen
+//   const x = -60 + progress * 80; // percentage
 
-//   // starts sooner, ends later
-//   const containerStart = vh * 1.15;
-//   const containerEnd = vh * 0.25;
-
-//   let containerProgress =
-//     (containerStart - imagesCenter) / (containerStart - containerEnd);
-//   containerProgress = Math.max(0, Math.min(1, containerProgress));
-
-//   const containerEased = ease(containerProgress);
-//   const imagesY = 200 * (1 - containerEased);
-
-//   images.style.transform = `translateY(${imagesY}px)`;
-
-//   // cards animate from their own viewport positions
-//   cards.forEach((card) => {
-//     const rect = card.getBoundingClientRect();
-//     const cardCenter = rect.top + rect.height / 2;
-
-//     const start = vh * 0.85;
-//     const end = vh * 0.45;
-
-//     let progress = (start - cardCenter) / (start - end);
-//     progress = Math.max(0, Math.min(1, progress));
-
-//     const eased = ease(progress);
-//     const y = 60 * (1 - eased);
-
-//     card.style.transform = `translateY(${y}px)`;
-//   });
+//   bkwdText.style.transform = `translateX(${x}%)`;
 // }
 
-// window.addEventListener("scroll", animateProjectsHero);
-// window.addEventListener("resize", animateProjectsHero);
-// animateProjectsHero();
+// window.addEventListener("scroll", handleSideScrollBkwd);
+// window.addEventListener("resize", handleSideScrollBkwd);
+// handleSideScrollBkwd();
 
 document.addEventListener("DOMContentLoaded", () => {
   const techFwdInfo = {
@@ -117,6 +69,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const rightBtn = document.querySelector(".right-btn");
 
   const projects = [caseInfo, techFwdInfo];
+  buildTagSelector(projects);
+
   let currentIndex = 0;
 
   renderProject(projects[currentIndex]);
@@ -170,4 +124,87 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".left-btn").addEventListener("click", showPrev);
 
   updateDisplay();
+
+  const selector = document.querySelector("#selector");
+  const selectInput = document.querySelector("#select-input");
+  const dropdown = document.querySelector("#dropdown-options");
+  const options = document.querySelectorAll(".option");
+  const span = document.querySelector("#select-input span");
+
+  // open/close dropdown when clicking select input
+  selectInput.addEventListener("click", () => {
+    selector.classList.toggle("open");
+    dropdown.classList.toggle("open");
+  });
+
+  // handle option click
+  options.forEach((option) => {
+    option.addEventListener("click", () => {
+      const value = option.textContent;
+
+      // update displayed text
+      span.textContent = value;
+
+      // add "open" class to clicked option (optional styling)
+      option.classList.add("open");
+
+      // close dropdown
+      selector.classList.remove("open");
+      dropdown.classList.remove("open");
+
+      // remove "open" class from other options (so only one is active)
+      options.forEach((opt) => opt.classList.remove("open"));
+    });
+  });
+
+  const sideBkwdSection = document.querySelector(".marquee.bkwd");
+  const bkwdText = sideBkwdSection.querySelector("p");
+
+  function handleSideScrollBkwd() {
+    const rect = sideBkwdSection.getBoundingClientRect();
+    const vh = window.innerHeight;
+
+    // progress: when section enters → when it leaves
+    let progress = (vh - rect.top) / (vh + rect.height);
+    progress = Math.max(0, Math.min(1, progress));
+
+    // move from right → left across screen
+    const x = -60 + progress * 80; // percentage
+
+    bkwdText.style.transform = `translateX(${x}%)`;
+  }
+
+  window.addEventListener("scroll", handleSideScrollBkwd);
+  window.addEventListener("resize", handleSideScrollBkwd);
+  handleSideScrollBkwd();
 });
+function buildTagSelector(projects) {
+  const select = document.querySelector("#tag-select");
+
+  if (!select) return;
+
+  const allTags = new Set();
+
+  projects.forEach((project) => {
+    project.tags?.forEach((tag) => allTags.add(tag));
+  });
+
+  // reset select
+  select.innerHTML = "";
+
+  // default placeholder option
+  const placeholder = document.createElement("option");
+  placeholder.value = "";
+  placeholder.textContent = "Select a tag";
+  placeholder.disabled = true;
+  placeholder.selected = true;
+  select.appendChild(placeholder);
+
+  // add tags
+  [...allTags].forEach((tag) => {
+    const option = document.createElement("option");
+    option.value = tag;
+    option.textContent = tag;
+    select.appendChild(option);
+  });
+}
