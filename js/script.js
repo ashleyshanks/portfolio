@@ -87,8 +87,21 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
+  // document.addEventListener(
+  //   "mouseenter",
+  //   (e) => {
+  //     if (
+  //       e.target.closest(
+  //         "a, button,  #carousel img, .btns img, .option, .clickable, #contact-btn, input, select, textarea"
+  //       )
+  //     ) {
+  //       cursor.classList.add("pointer");
+  //     }
+  //   },
+  //   true
+  // ); // true = capture phase, fires on all descendants
   document.addEventListener(
-    "mouseenter",
+    "mouseover",
     (e) => {
       if (
         e.target.closest(
@@ -96,11 +109,12 @@ document.addEventListener("DOMContentLoaded", () => {
         )
       ) {
         cursor.classList.add("pointer");
+      } else {
+        cursor.classList.remove("pointer");
       }
     },
     true
-  ); // true = capture phase, fires on all descendants
-
+  );
   document.addEventListener(
     "mouseleave",
     (e) => {

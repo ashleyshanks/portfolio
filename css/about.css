@@ -8,6 +8,8 @@
 
   font-size: var(--reg-inter);
   line-height: var(--sm-line-h);
+
+  margin-top: 6em;
 }
 
 #hero {
@@ -133,18 +135,17 @@
 }
 
 #info .icons,
-#info .tags,
 #info h4,
 .row3.r-col p {
-  margin-top: 0.4em;
+  margin-top: 0.5em;
+}
+
+#info .tags {
+  margin-top: 1em;
 }
 
 .row3.r-col p {
   margin-bottom: 0.4em;
-}
-
-#info .tags {
-  margin-top: 0.6em;
 }
 
 li.l-col {
@@ -191,11 +192,6 @@ li.divider {
   margin: 0.1em 0;
 }
 
-#info {
-  margin-top: 6em;
-  margin-bottom: 10em;
-}
-
 #info img,
 #info .icons svg:not(svg.sparkle) {
   width: 60px;
@@ -204,6 +200,7 @@ li.divider {
 #info ul.icons {
   display: grid;
   grid-template-columns: repeat(6, max-content);
+  /* margin-top: 0.7em; */
 }
 
 .l-col li {
@@ -244,7 +241,7 @@ ul.stats {
   border: 2.5px solid var(--base);
   color: var(--base);
   border-radius: 10px;
-  padding: 0.4em 0.35em 0.5em 0.35em;
+  padding: 0.1em 0 0.2em 0;
   overflow: hidden;
 }
 
@@ -272,6 +269,8 @@ ul.stats {
 
 #links {
   width: 100%;
+  margin-top: 1.7em;
+  margin-bottom: 10em;
 }
 #links ul {
   display: flex;
@@ -279,7 +278,8 @@ ul.stats {
   align-items: center;
 }
 
-#links a {
+#links a,
+#links li.contact {
   display: flex;
   gap: 0.7em;
   align-items: center;
@@ -294,9 +294,6 @@ ul.stats {
 .sparkle {
   width: 14px;
   height: 14px;
-}
-#links {
-  margin-top: 3em;
 }
 
 #outro {
@@ -415,17 +412,17 @@ ul.stats {
     grid-column-gap: 3em;
   }
 
-  #cols li > :nth-child(2):not(.stats span:last-of-type) {
+  /* #cols li > :nth-child(2):not(.stats span:last-of-type) {
     margin-top: 0.8em;
-  }
+  } */
 
   .stats span:last-of-type {
     margin-top: 0.2em;
   }
 
-  #info .tags {
+  /* #info .tags {
     margin-top: 1.2em;
-  }
+  } */
 }
 
 @media (min-width: 1075px) {
