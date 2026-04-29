@@ -694,6 +694,9 @@ footer li:hover,
   .mobile-hide {
     display: none;
   }
+  nav {
+    font-size: 0.8em;
+  }
 }
 
 /*fix me.. get rid of overlap with root and arrows*/
@@ -826,9 +829,9 @@ footer li:hover,
     --base-margin: 30px;
   }
 
-  header svg {
+  /* header svg {
     transform: translateX(20%) translateY(20%) scale(1.4);
-  }
+  } */
 }
 
 .btn.get-to-know:hover .arrow {

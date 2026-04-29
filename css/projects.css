@@ -1,6 +1,6 @@
 #hero {
   height: max-content;
-  margin-top: 3em;
+  margin-top: 10vw;
   margin-bottom: 0.2em;
   display: flex;
   align-items: flex-end;
@@ -9,7 +9,8 @@
 
 #hero.projects p {
   font-family: unbounded, sans-serif;
-  font-size: var(--md-unbounded);
+  font-size: var(--sm-unbounded);
+  font-weight: 500;
   text-transform: lowercase;
 
   position: static;
@@ -24,7 +25,7 @@
 
   width: 100%;
   padding: 0.1em;
-  padding-left: 0.3em;
+  padding-left: 0.5em;
   margin-top: 0.15em;
   z-index: 5;
 
@@ -110,7 +111,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-right: var(--base-margin);
+  /* margin-right: var(--base-margin); */
   margin-left: 8px;
 }
 
@@ -249,6 +250,25 @@ section.highlight {
   margin-right: 5px;
 }
 
+@media (max-width: 390px) {
+  #hero.projects p {
+    font-size: 0.6em;
+  }
+
+  #selector span,
+  #dropdown-options {
+    font-size: 0.6em;
+  }
+
+  #dropdown-options {
+    border-radius: 0 0 10px 10px;
+  }
+
+  #selector.open {
+    border-radius: 10px 10px 0 0;
+  }
+}
+
 @media (max-width: 540px) {
   .highlight .count {
     display: none;
@@ -259,7 +279,45 @@ section.highlight {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 515px) {
+  .project-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .project-icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+  }
+
+  #tag-selection img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .project-icon.current::after,
+  .project-icon.fit::after,
+  .project-icon.current.fit::before {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+@media (min-width: 390px) and (max-width: 650px) {
+  #hero.projects p {
+    font-size: var(--sm-unbounded);
+  }
+
+  #dropdown-options {
+    border-radius: 0 0 15px 15px;
+  }
+
+  #selector.open {
+    border-radius: 15px 15px 0 0;
+  }
+}
+@media (min-width: 515px) and (max-width: 600px) {
   .project-icon {
     width: 40px;
     height: 40px;
@@ -267,10 +325,6 @@ section.highlight {
 }
 
 @media (max-width: 650px) {
-  #hero.projects p {
-    font-size: var(--sm-unbounded);
-  }
-
   #hero {
     margin-top: 1.8em;
   }
