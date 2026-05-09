@@ -122,13 +122,11 @@ const projects = {
 
 const project = projects[projectId];
 
-// if (!project) {
-//   console.error("Project not found:", projectId);
-// } else {
-//   fillProjectPage(project);
-// }
-
-fillProjectPage(techFwdInfo);
+if (!project) {
+  console.error("Project not found:", projectId);
+} else {
+  fillProjectPage(project);
+}
 
 function fixImgFileName(fileName, folderName, format) {
   return `images/case-study-previews/${folderName}/${fileName}.${format}`;

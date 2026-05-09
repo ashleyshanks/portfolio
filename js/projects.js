@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const rightBtn = document.querySelector(".right-btn");
 
-  const projects = [caseInfo, grInfo];
+  const projects = [caseInfo, grInfo, techFwdInfo];
   buildTagSelector(projects);
 
   let currentIndex = 0;
