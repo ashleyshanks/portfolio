@@ -4,7 +4,7 @@ const footer = document.querySelector("footer");
 const contactContent = `
   <div id="contact-btn" class="contact clickable">
   <span>Email</span>
-  <img src="../images/contact.svg" alt="email icon">
+  <img src="images/contact.svg" alt="email icon">
   </div>
 `;
 

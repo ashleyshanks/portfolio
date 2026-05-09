@@ -51,7 +51,7 @@ const caseInfo = {
     "The final website translates Case’s cinematic, story-driven sound into a seamless digital experience. By blending modern and organic design elements with an elevated scrapbook aesthetic, the site captures both the polished and raw sides of his artistry—creating a brand that feels immersive, authentic, and true to who he is.<br><br>This project also expanded my technical skill set, as I learned how to develop a fully custom Shopify theme to support his needs. I used Adobe Creative Suite to design and produce custom visual assets, ensuring the final site felt cohesive, intentional, and aligned with his creative direction.",
   resultsImgMain: "caseHome",
   resultsImgShort: "caseHomeShort",
-  resultsVid: "case study previews/resultsVidPlaceholder.png",
+  resultsVid: "case-study-previews/resultsVidPlaceholder.png",
   resultsDescriptions: ["Case Vannon's previous website."],
 };
 const grInfo = {
@@ -84,7 +84,7 @@ const grInfo = {
     "This project really helped me appreciate the value of user insight and research. At first, I planned to rely mostly on my own preferences since I use the site frequently myself, along with some quick research from online forums, but creating a survey and being able to ask users more in-depth questions pushed the design much further than it would’ve gone otherwise. It was also a great opportunity to strengthen my data handling skills, as I used JSON files for users and books alongside JavaScript to generate “currently reading” and “previously read” bookshelves, as well as personalized book suggestions Overall, I’m really happy with how the project turned out, and I plan to revisit it later to finish developing the bookshelf page, another key feature of the site that could benefit from UX improvements.",
   resultsImgMain: "gr-home",
   resultsImgShort: "gr-home-short",
-  resultsVid: "case study previews/resultsVidPlaceholder.png",
+  resultsVid: "case-study-previews/resultsVidPlaceholder.png",
   resultsDescriptions: [null],
 };
 const techFwdInfo = {
@@ -108,7 +108,7 @@ const techFwdInfo = {
     "This project really helped me appreciate the value of user insight and research. At first, I planned to rely mostly on my own preferences since I use the site frequently myself, along with some quick research from online forums, but creating a survey and being able to ask users more in-depth questions pushed the design much further than it would’ve gone otherwise. It was also a great opportunity to strengthen my data handling skills, as I used JSON files for users and books alongside JavaScript to generate “currently reading” and “previously read” bookshelves, as well as personalized book suggestions Overall, I’m really happy with how the project turned out, and I plan to revisit it later to finish developing the bookshelf page, another key feature of the site that could benefit from UX improvements.",
   resultsImgMain: "techfwd",
   resultsImgShort: "techfwd",
-  resultsVid: "case study previews/resultsVidPlaceholder.png",
+  resultsVid: "case-study-previews/resultsVidPlaceholder.png",
   resultsDescriptions: [null],
 };
 
@@ -131,7 +131,7 @@ const project = projects[projectId];
 fillProjectPage(techFwdInfo);
 
 function fixImgFileName(fileName, folderName, format) {
-  return `../images/case study previews/${folderName}/${fileName}.${format}`;
+  return `images/case-study-previews/${folderName}/${fileName}.${format}`;
 }
 
 function fillProjectPage(project) {
@@ -323,14 +323,14 @@ function fillProjectPage(project) {
   // Results video / placeholder
   const resultsVideo = document.getElementById("results-video");
 
-  const placeholder = "case study previews/resultsVidPlaceholder.png";
+  const placeholder = "case-study-previews/resultsVidPlaceholder.png";
 
   if (!resultsVideo) return;
 
   if (project.resultsVid === placeholder) {
     resultsVideo.innerHTML = `
     <img
-      src="../images/${placeholder}"
+      src="images/${placeholder}"
       alt="image says work in progress"
     />
   `;
