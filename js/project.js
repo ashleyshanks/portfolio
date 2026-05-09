@@ -54,8 +54,81 @@ const caseInfo = {
   resultsVid: "case study previews/resultsVidPlaceholder.png",
   resultsDescriptions: ["Case Vannon's previous website."],
 };
+const grInfo = {
+  folderName: "gr",
+  title: "goodreads.",
+  introText1:
+    "The current Goodreads website is in need of modernization. Guided by user insight, I opted to refresh the old design with a cozy and minimalist look. The ultimate goal was to build on the value the platform already offers its users by improving UX, reducing clutter, strengthening organization and navigation, and enhancing social and book discovery features.",
+  introText2:
+    "My original vision for the redesign was to give users the warmth and comfort of walking into a local bookstore. However, after surveying 39 users, I shifted my direction to focus more on UX improvements and a design that felt authentic to Goodreads’ parent company, Amazon. The goal was to present existing features in a more user-friendly way while still capturing the cozy feeling of curling up with a good book.",
+  introImg: "gr-home2",
+  colors: ["#bfc8a3", "#37421c", "#e0d5c9", "#f7f3ee", "#38291e"],
+  colorsWhiteText: [true, true, false, false, true],
+  processText:
+    "I began the project with a brief user experience survey to better understand pain points with the existing Goodreads platform. The survey was distributed across social media groups and my university network. While my respondents were not fully representative of Goodreads’ overall user base, the responses still provided valuable insight into user frustrations, preferences, and the features they valued most.<br><br>After reviewing the responses, I created six user personas to represent the platform’s wide range of users. Two key personas became the primary focus of the redesign: “Gen-Z Zara,” representing younger users, and “Perfectionist Page,” representing the most dissatisfied users overall. I also summarized common trends and focused closely on the feedback users agreed on most.<br><br>Users identified logging books, tracking reading progress, and social interaction as the platform’s most important features. However, many users were unaware of Goodreads’ existing social tools, which inspired navigation updates such as a dedicated Connect tab, a more expressive profile page, and a “See What Others Are Reading” section on the homepage. Survey responses also described the site as outdated and cluttered, with users preferring a more minimalist and motivating experience. To address this, I added reader statistics inspired by Spotify Wrapped along with visual progress bars and achievement elements to make tracking reading feel more engaging and rewarding.",
+  processImg: "genzzara",
+  processImg2: "perfectionistpaige",
+  carouselTitle: null,
+  carouselImgs: [
+    "1gr-wiref-home",
+    "2gr-wiref-home",
+    "3gr-wiref-shelves",
+    "4gr-wiref-profile",
+    "5gr-home",
+    "6gr-home",
+    "7gr-home",
+    "8gr-profile",
+  ],
 
-const projects = [caseInfo];
+  resultsText:
+    "This project really helped me appreciate the value of user insight and research. At first, I planned to rely mostly on my own preferences since I use the site frequently myself, along with some quick research from online forums, but creating a survey and being able to ask users more in-depth questions pushed the design much further than it would’ve gone otherwise. It was also a great opportunity to strengthen my data handling skills, as I used JSON files for users and books alongside JavaScript to generate “currently reading” and “previously read” bookshelves, as well as personalized book suggestions Overall, I’m really happy with how the project turned out, and I plan to revisit it later to finish developing the bookshelf page, another key feature of the site that could benefit from UX improvements.",
+  resultsImgMain: "gr-home",
+  resultsImgShort: "gr-home-short",
+  resultsVid: "case study previews/resultsVidPlaceholder.png",
+  resultsDescriptions: [null],
+};
+const techFwdInfo = {
+  folderName: "techFwd",
+  title: "techForward",
+  introText1:
+    "TechForward is a conceptual brand I created as a foundation for exploring identity, messaging, and visual direction within the education technology space. It is not a real company, but rather a speculative brand designed to imagine what a future-forward learning platform could look and feel like. From this concept, I developed a logo and then expanded it into a single-page website to bring the brand to life in a tangible, interactive way.",
+  introText2:
+    "The direction of TechForward is rooted in the idea of making education more engaging, personalized, and emotionally resonant for students, parents, and educators. The concept explores how learning can move beyond traditional limitations by connecting subjects through student interests, encouraging self-guided progress, and supporting real-world application. The brand was also shaped by the emotional outcome it aims to evoke—confidence, excitement, and a sense of empowerment around the future of education.",
+  introImg: "techFwdLogo",
+  colors: ["#021e3b", "#e74b3c", "#1abc9d", "#f8d236", "#f0f2f4", "#0c0c0c"],
+  colorsWhiteText: [true, true, true, true, false, true],
+  processText:
+    "The design process began with a creative brief to explore and define the brand’s identity, helping establish a clear direction for tone, purpose, and visual language. From there, I developed user personas to better understand the needs and motivations of the intended audiences, which informed key design decisions throughout the project. I focused on creating a structure that felt data-driven yet approachable, balancing trust and innovation with warmth and accessibility. From this foundation, I built out a single-page website that organizes the concept into a cohesive narrative, using layout, typography, and interaction to reflect the core ideas of adaptability, personalization, and modern learning.",
+  processImg: "petra",
+  processImg2: "Frank",
+  carouselTitle: null,
+  carouselImgs: null,
+
+  resultsText:
+    "This project really helped me appreciate the value of user insight and research. At first, I planned to rely mostly on my own preferences since I use the site frequently myself, along with some quick research from online forums, but creating a survey and being able to ask users more in-depth questions pushed the design much further than it would’ve gone otherwise. It was also a great opportunity to strengthen my data handling skills, as I used JSON files for users and books alongside JavaScript to generate “currently reading” and “previously read” bookshelves, as well as personalized book suggestions Overall, I’m really happy with how the project turned out, and I plan to revisit it later to finish developing the bookshelf page, another key feature of the site that could benefit from UX improvements.",
+  resultsImgMain: "techfwd",
+  resultsImgShort: "techfwd",
+  resultsVid: "case study previews/resultsVidPlaceholder.png",
+  resultsDescriptions: [null],
+};
+
+const params = new URLSearchParams(window.location.search);
+const projectId = params.get("id");
+
+const projects = {
+  gr: grInfo,
+  case: caseInfo,
+};
+
+const project = projects[projectId];
+
+// if (!project) {
+//   console.error("Project not found:", projectId);
+// } else {
+//   fillProjectPage(project);
+// }
+
+fillProjectPage(techFwdInfo);
 
 function fixImgFileName(fileName, folderName, format) {
   return `../images/case study previews/${folderName}/${fileName}.${format}`;
@@ -76,6 +149,18 @@ function fillProjectPage(project) {
   // Colors
   const colorsContainer = document.querySelector("#colors");
   colorsContainer.innerHTML = "";
+
+  if (project.colors.length === 6) {
+    colorsContainer.classList.add("six-colors");
+  } else {
+    colorsContainer.classList.remove("six-colors");
+  }
+
+  if (project.colors.length === 5) {
+    colorsContainer.classList.add("five-colors");
+  } else {
+    colorsContainer.classList.remove("five-colors");
+  }
 
   project.colors.forEach((color, index) => {
     const colorDiv = document.createElement("div");
@@ -99,7 +184,7 @@ function fillProjectPage(project) {
   if (project.processImg) {
     processImgs.insertAdjacentHTML(
       "beforeend",
-      `<div class="crop-area"><img src="${fixImgFileName(
+      `<div class="crop-area clickable"><img src="${fixImgFileName(
         project.processImg,
         folder,
         "jpg"
@@ -110,7 +195,7 @@ function fillProjectPage(project) {
   if (project.processImg2) {
     processImgs.insertAdjacentHTML(
       "beforeend",
-      `<div class="crop-area"><img src="${fixImgFileName(
+      `<div class="crop-area clickable"><img src="${fixImgFileName(
         project.processImg2,
         folder,
         "jpg"
@@ -137,66 +222,73 @@ function fillProjectPage(project) {
   });
 
   // 1. BUILD SETS
-  for (let i = 0; i < project.carouselImgs.length; i += itemsPerSet) {
-    const imgSet = document.createElement("div");
-    imgSet.classList.add("img-set");
 
-    for (
-      let j = i;
-      j < i + itemsPerSet && j < project.carouselImgs.length;
-      j++
-    ) {
-      const cropArea = document.createElement("div");
-      cropArea.classList.add("crop-area");
+  const iterationsE = document.getElementById("iterations");
+  if (!project.carouselImgs || project.carouselImgs.length === 0) {
+    iterationsE.classList.add("hide");
+  } else {
+    iterationsE.classList.remove("hide");
+    for (let i = 0; i < project.carouselImgs.length; i += itemsPerSet) {
+      const imgSet = document.createElement("div");
+      imgSet.classList.add("img-set");
 
-      const img = document.createElement("img");
-      const imgName = project.carouselImgs[j];
+      for (
+        let j = i;
+        j < i + itemsPerSet && j < project.carouselImgs.length;
+        j++
+      ) {
+        const cropArea = document.createElement("div");
+        cropArea.classList.add("crop-area");
 
-      img.src = fixImgFileName(imgName, folder, "jpg");
-      img.onload = () => {
-        img.classList.add("loaded");
-      };
-      img.alt = `${project.title} iteration ${j + 1}`;
+        const img = document.createElement("img");
+        const imgName = project.carouselImgs[j];
 
-      cropArea.appendChild(img);
-      imgSet.appendChild(cropArea);
+        img.src = fixImgFileName(imgName, folder, "jpg");
+        img.onload = () => {
+          img.classList.add("loaded");
+        };
+        img.alt = `${project.title} iteration ${j + 1}`;
+
+        cropArea.appendChild(img);
+        imgSet.appendChild(cropArea);
+      }
+
+      carouselImgs.appendChild(imgSet);
     }
 
-    carouselImgs.appendChild(imgSet);
+    // 2. NOW query AFTER build
+    const imgSets = document.querySelectorAll(".img-set");
+
+    let currentPage = 0;
+    const totalPages = imgSets.length;
+
+    // 3. UPDATE FUNCTION
+    function updateCarousel() {
+      carouselImgs.style.transform = `translateX(-${currentPage * 100}%)`;
+
+      // arrows state
+      leftBtn.classList.toggle("disabled", currentPage === 0);
+      rightBtn.classList.toggle("disabled", currentPage === totalPages - 1);
+    }
+
+    // 4. EVENTS
+    rightBtn.addEventListener("click", () => {
+      if (currentPage < totalPages - 1) {
+        currentPage++;
+        updateCarousel();
+      }
+    });
+
+    leftBtn.addEventListener("click", () => {
+      if (currentPage > 0) {
+        currentPage--;
+        updateCarousel();
+      }
+    });
+
+    // 5. INIT STATE (IMPORTANT)
+    updateCarousel();
   }
-
-  // 2. NOW query AFTER build
-  const imgSets = document.querySelectorAll(".img-set");
-
-  let currentPage = 0;
-  const totalPages = imgSets.length;
-
-  // 3. UPDATE FUNCTION
-  function updateCarousel() {
-    carouselImgs.style.transform = `translateX(-${currentPage * 100}%)`;
-
-    // arrows state
-    leftBtn.classList.toggle("disabled", currentPage === 0);
-    rightBtn.classList.toggle("disabled", currentPage === totalPages - 1);
-  }
-
-  // 4. EVENTS
-  rightBtn.addEventListener("click", () => {
-    if (currentPage < totalPages - 1) {
-      currentPage++;
-      updateCarousel();
-    }
-  });
-
-  leftBtn.addEventListener("click", () => {
-    if (currentPage > 0) {
-      currentPage--;
-      updateCarousel();
-    }
-  });
-
-  // 5. INIT STATE (IMPORTANT)
-  updateCarousel();
 
   // Results
   renderResultsImage(project, folder);
@@ -217,7 +309,7 @@ function fillProjectPage(project) {
 
     resultsImgs.innerHTML = `
       <img 
-        class="main-img"
+        class="main-img clickable"
         src="${src}" 
         alt="${project.title} final result"
       >
@@ -229,14 +321,29 @@ function fillProjectPage(project) {
   });
 
   // Results video / placeholder
-  const resultsVideoImg = document.querySelector("#results-video img");
+  const resultsVideo = document.getElementById("results-video");
 
-  if (project.resultsVid && resultsVideoImg) {
-    resultsVideoImg.src = `../images/${project.resultsVid}`;
+  const placeholder = "case study previews/resultsVidPlaceholder.png";
+
+  if (!resultsVideo) return;
+
+  if (project.resultsVid === placeholder) {
+    resultsVideo.innerHTML = `
+    <img
+      src="../images/${placeholder}"
+      alt="image says work in progress"
+    />
+  `;
+  } else {
+    resultsVideo.innerHTML = `
+      <video muted loop playsinline>
+        <source src="${project.resultsVid}" type="video/mp4">
+      </video>
+    `;
   }
 }
 
-fillProjectPage(projects[0]);
+// fillProjectPage(projects[0]);
 
 const lightbox = document.querySelector("#lightbox");
 const lightboxImg = document.querySelector(".lightbox-img");

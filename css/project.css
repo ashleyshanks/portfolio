@@ -58,7 +58,7 @@ h1 {
   font-size: 1.04em;
 }
 
-h2 {
+h2:not(#contact-module h2) {
   color: var(--white);
   background-color: var(--black);
   background-color: var(--black);
@@ -101,7 +101,7 @@ h3 {
   flex-direction: column;
 }
 
-#colors {
+#colors.six-colors {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
@@ -124,16 +124,39 @@ h3 {
   padding: 0.5rem;
 }
 
-#colors div:not(#colors div:nth-of-type(5)):not(#colors div:last-of-type) {
+#colors.six-colors
+  div:not(#colors div:nth-of-type(5)):not(#colors div:last-of-type) {
   aspect-ratio: 1/1;
 }
 
-#colors div:nth-of-type(5) {
+#colors.six-colors div:nth-of-type(5) {
   grid-column: 1/3;
 }
 
-#colors div:last-of-type {
+#colors.six-colors div:last-of-type {
   grid-column: 3/5;
+}
+
+#colors.five-colors {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  width: 100%;
+  gap: 0.35rem;
+  margin-top: var(--inner-spacing);
+}
+
+#colors.five-colors
+  div:not(#colors div:nth-of-type(4)):not(#colors div:last-of-type) {
+  aspect-ratio: 1/1;
+}
+
+#colors.five-colors div:nth-of-type(4) {
+  grid-column: 1/2;
+}
+
+#colors.five-colors div:last-of-type {
+  grid-column: 2/4;
 }
 
 #mini-nav {
